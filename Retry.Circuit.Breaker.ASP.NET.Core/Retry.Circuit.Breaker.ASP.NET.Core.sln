@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resilient.WebApp", "Resilient.WebApp\Resilient.WebApp.csproj", "{E6722E08-88B3-486C-92D6-9FA5B852442B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resilient.WebApi", "Resilient.WebApi\Resilient.WebApi.csproj", "{C60D722F-6EBE-427C-AF5D-2A0953A9AC8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E6722E08-88B3-486C-92D6-9FA5B852442B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6722E08-88B3-486C-92D6-9FA5B852442B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6722E08-88B3-486C-92D6-9FA5B852442B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C60D722F-6EBE-427C-AF5D-2A0953A9AC8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C60D722F-6EBE-427C-AF5D-2A0953A9AC8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C60D722F-6EBE-427C-AF5D-2A0953A9AC8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C60D722F-6EBE-427C-AF5D-2A0953A9AC8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
