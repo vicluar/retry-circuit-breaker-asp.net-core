@@ -10,7 +10,10 @@ namespace Resilient.WebApp.Services
     {
         public IEnumerable<WeatherForecast> GetForecasts()
         {
-            throw new NotImplementedException();
+            return new List<WeatherForecast>
+            {
+                new WeatherForecast(DateTime.Now, 2, 2, "Sunny")
+            };
         }
     }
 }

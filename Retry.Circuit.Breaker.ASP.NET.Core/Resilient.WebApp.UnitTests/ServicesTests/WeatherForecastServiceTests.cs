@@ -24,5 +24,16 @@ namespace Resilient.WebApp.UnitTests.ServicesTests
             Assert.IsNotNull(forecasts);
             Assert.IsTrue(forecasts.Count() > 0);
         }
+
+        [Test]
+        public void Return_Valid_Weather_Forecast_Objects()
+        {
+            var forecasts = _sut.GetForecasts();
+            var firstForecast = forecasts.FirstOrDefault();
+
+            Assert.IsNotNull(firstForecast);
+            Assert.IsFalse(string.IsNullOrWhiteSpace(firstForecast.Summary));
+            Assert.IsTrue(firstForecast.Date != new DateTime(0001, 01, 01));
+        }
     }
 }
