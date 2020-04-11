@@ -49,14 +49,14 @@ namespace Resilient.WebApp.UnitTests.ServicesTests
             handlerMock
                .Protected()
                .Setup<Task<HttpResponseMessage>>(
-                  "GetAsync",
+                  "SendAsync",
                   ItExpr.IsAny<HttpRequestMessage>(),
                   ItExpr.IsAny<CancellationToken>()
                )
                .ReturnsAsync(new HttpResponseMessage()
                {
                    StatusCode = HttpStatusCode.OK,
-                   Content = new StringContent("[{'date':'2020 - 04 - 11T23: 38:57.9358192 + 02:00','temperatureC':-2,'temperatureF':29,'summary':'Mild'}]"),
+                   Content = new StringContent("[{'date':'2020-04-11T23:38:57.9358192+02:00','temperatureC':-2,'temperatureF':29,'summary':'Mild'}]"),
                })
                .Verifiable();
 
