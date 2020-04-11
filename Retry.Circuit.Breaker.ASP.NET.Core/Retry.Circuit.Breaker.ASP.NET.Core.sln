@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resilient.WebApp", "Resilie
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resilient.WebApi", "Resilient.WebApi\Resilient.WebApi.csproj", "{C60D722F-6EBE-427C-AF5D-2A0953A9AC8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resilient.WebApp.UnitTests", "Resilient.WebApp.UnitTests\Resilient.WebApp.UnitTests.csproj", "{9CED4AE6-E5D1-4C11-A481-C05BDF0F2471}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resilient.WebApp.UnitTests", "Resilient.WebApp.UnitTests\Resilient.WebApp.UnitTests.csproj", "{9CED4AE6-E5D1-4C11-A481-C05BDF0F2471}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

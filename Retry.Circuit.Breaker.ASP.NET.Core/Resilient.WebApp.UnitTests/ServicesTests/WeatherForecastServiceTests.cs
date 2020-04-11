@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using Moq;
 using Moq.Protected;
 using NUnit.Framework;
@@ -20,7 +21,9 @@ namespace Resilient.WebApp.UnitTests.ServicesTests
         public WeatherForecastServiceTests()
         {
             var httpClient = new HttpClient(GetHttpMessageHandler());
-            _sut = new WeatherForecastService(httpClient);
+            var logger = GetMockLogger();
+
+            _sut = new WeatherForecastService(logger, httpClient);
         }
 
         [Test]
@@ -61,6 +64,13 @@ namespace Resilient.WebApp.UnitTests.ServicesTests
                .Verifiable();
 
             return handlerMock.Object;
+        }
+
+        private ILogger<WeatherForecastService> GetMockLogger()
+        {
+            var mockLogger = new Mock<ILogger<WeatherForecastService>>();
+
+            return mockLogger.Object;
         }
     }
 }

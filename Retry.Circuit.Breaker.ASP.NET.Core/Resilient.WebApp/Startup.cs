@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Resilient.WebApp.Configuration;
 using Resilient.WebApp.Services;
 
 namespace Resilient.WebApp
@@ -26,7 +27,7 @@ namespace Resilient.WebApp
         {
             services.AddControllersWithViews();
 
-            services.AddHttpClient<IWheaterForecastService, WeatherForecastService>();
+            services.AddIHttpClientFactory();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using Resilient.WebApp.Models;
 using System;
 using System.Collections.Generic;
@@ -11,13 +12,18 @@ namespace Resilient.WebApp.Services
     public class WeatherForecastService : IWheaterForecastService
     {
         private const string BASE_URI = "https://localhost:44341";
+
+        private readonly ILogger _logger;
         private readonly HttpClient _httpClient;
 
-        public WeatherForecastService(HttpClient httpClient) =>
-            (_httpClient) = (httpClient);
+        public WeatherForecastService(ILogger<WeatherForecastService> logger, 
+            HttpClient httpClient) =>
+            (_logger, _httpClient) = (logger, httpClient);
 
         public async Task<IEnumerable<WeatherForecast>> GetForecasts()
         {
+            _logger.LogInformation($"Request at: {DateTime.UtcNow}");
+
             var response = await _httpClient.GetAsync($"{BASE_URI}/weatherforecast");
 
             if (response.IsSuccessStatusCode)
