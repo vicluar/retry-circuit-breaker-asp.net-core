@@ -1,10 +1,11 @@
 ﻿using Resilient.WebApp.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Resilient.WebApp.Services
 {
     public interface IWheaterForecastService
     {
-        IEnumerable<WeatherForecast> GetForecasts();
+        Task<IEnumerable<WeatherForecast>> GetForecasts();
     }
 }

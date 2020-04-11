@@ -14,9 +14,9 @@ namespace Resilient.WebApp.Controllers
         public WeatherForecastController(IWheaterForecastService wheaterForecastService) =>
             (_weatherForecastService) = (wheaterForecastService);
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var forecasts = _weatherForecastService.GetForecasts();
+            var forecasts = await _weatherForecastService.GetForecasts();
 
             return View(forecasts);
         }

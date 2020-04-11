@@ -26,7 +26,7 @@ namespace Resilient.WebApp
         {
             services.AddControllersWithViews();
 
-            services.AddScoped<IWheaterForecastService, WeatherForecastService>();
+            services.AddHttpClient<IWheaterForecastService, WeatherForecastService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,19 +1,35 @@
-﻿using Resilient.WebApp.Models;
+﻿using Newtonsoft.Json;
+using Resilient.WebApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Resilient.WebApp.Services
 {
     public class WeatherForecastService : IWheaterForecastService
     {
-        public IEnumerable<WeatherForecast> GetForecasts()
+        private readonly HttpClient _httpClient;
+
+        public WeatherForecastService(HttpClient httpClient) =>
+            (_httpClient) = (httpClient);
+
+        public async Task<IEnumerable<WeatherForecast>> GetForecasts()
         {
-            return new List<WeatherForecast>
+            var response = await _httpClient.GetAsync("https://localhost:44341/weatherforecast");
+
+            if (response.IsSuccessStatusCode)
             {
-                new WeatherForecast(DateTime.Now, 2, 2, "Sunny")
-            };
+                var weatherForecasts = JsonConvert.DeserializeObject<List<WeatherForecast>>(response.Content.ReadAsStringAsync().Result);
+                return weatherForecasts;
+            }
+            else
+            {
+                // TODO: Something went wrong with the http call.
+                // Code to manage that scenario.
+                return default;
+            }
         }
     }
 }
