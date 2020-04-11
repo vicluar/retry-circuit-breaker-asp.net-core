@@ -10,6 +10,7 @@ namespace Resilient.WebApp.Services
 {
     public class WeatherForecastService : IWheaterForecastService
     {
+        private const string BASE_URI = "https://localhost:44341";
         private readonly HttpClient _httpClient;
 
         public WeatherForecastService(HttpClient httpClient) =>
@@ -17,7 +18,7 @@ namespace Resilient.WebApp.Services
 
         public async Task<IEnumerable<WeatherForecast>> GetForecasts()
         {
-            var response = await _httpClient.GetAsync("https://localhost:44341/weatherforecast");
+            var response = await _httpClient.GetAsync($"{BASE_URI}/weatherforecast");
 
             if (response.IsSuccessStatusCode)
             {
